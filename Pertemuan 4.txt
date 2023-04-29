@@ -1,0 +1,79 @@
+import React from 'react';
+import { Image, Text, TextInput, View, TouchableOpacity } from 'react-native';
+
+export default class App extends React.Component {
+  render() {
+
+    let title ='Login';
+    const desc="Blablala"
+
+    title = title+" Aplikasi " +(1+2+1)
+    
+    let username = '';
+    let password = '';
+    return (
+      <View
+        style={{
+          alignItems: 'center',
+          height: '100%',
+          justifyContent: 'center',
+          width: '100%',
+        }}>
+        <Image
+          source={{
+            uri: 'https://images.unsplash.com/photo-1618221227897-57302c9460b6?ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw5fHx8ZW58MHx8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
+          }}
+          style={{
+            height: 200,
+            width: 200,
+            borderRadius: 200 / 2,
+          }}></Image>
+
+        <Text
+          style={{
+            fontSize: 28,
+            fontWeight: 'bold',
+            marginVertical: 20,
+          }}>
+          {title}
+        </Text>
+
+        <TextInput
+          placeholder="Username"
+          onChangeText={(newText) => (username = newText)}
+          style={{
+            borderWidth: 1,
+            padding: 10,
+            width: 200,
+          }}></TextInput>
+
+        <TextInput
+          placeholder="Password"
+          onChangeText={(newText) => (password = newText)}
+          secureTextEntry={true}
+          style={{
+            borderWidth: 1,
+            marginTop: 10,
+            padding: 10,
+            width: 200,
+          }}></TextInput>
+
+        <TouchableOpacity
+          style={{
+            backgroundColor: 'red',
+          }}
+          onPress={() => {
+            alert('Username =' + username + '\nPassword= ' + password);
+          }}>
+          <Text
+            style={{
+              fontSize: 20,
+              fontWeight: 'bold',
+            }}>
+            Submit
+          </Text>
+        </TouchableOpacity>
+      </View>
+    );
+  }
+}
