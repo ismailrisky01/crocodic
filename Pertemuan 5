@@ -1,0 +1,77 @@
+import * as React from 'react';
+import { Text, View, TouchableOpacity } from 'react-native';
+
+export default class App extends React.Component {
+  state = {
+    nama: 'rahman',
+    umur: 14,
+    warna:'red'
+  };
+
+  tambahUmur(){
+    this.setState({
+      umur:this.state.umur+1
+    })
+  }
+
+  cekUmur(umur){
+    if(umur<17){
+      alert("Remaja")
+    }else{
+      alert("Dewasa")
+    }
+  }
+
+  render() {
+    return (
+      <View
+      style={{
+        alignItems:"center",
+        justifyCpntent:"center",
+        height:'100%'
+
+      }}
+    >
+        <TouchableOpacity
+          onPress={() => {
+            //this
+            this.setState({ nama: 'budi' });
+            this.tambahUmur()
+          }}>
+          <Text> {this.state.nama}</Text>
+        </TouchableOpacity>
+
+
+        <TouchableOpacity
+          onPress={() => {
+            //this
+            this.tambahUmur()
+          }}>
+        <Text> {this.state.umur}</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={() => {
+            //this
+          this.setState({ warna: 'blue' });
+
+          }}
+          style={{
+            backgroundColor: this.state.warna
+          }}
+          >
+        <Text> Ganti Warna</Text>
+        </TouchableOpacity>
+
+          <TouchableOpacity
+          onPress={() => {
+            //this
+          this.cekUmur(this.state.umur)
+
+          }}>
+        <Text> Cek umur</Text>
+        </TouchableOpacity>
+      </View>
+    );
+  }
+}
